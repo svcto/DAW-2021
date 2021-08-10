@@ -2,4 +2,4 @@
 const objeto = {
     atributo: new Date()
 };
-console.log(objeto);
+console.log(objeto); 
