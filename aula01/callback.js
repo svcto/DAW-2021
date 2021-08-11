@@ -3,9 +3,16 @@ function inicio() {
     console.log(variavel);
 }
 
-function meio() {
+const init = function() {
+    console.log('inicio alternativo');
+}
+
+function processa(inicio, fim) {
+    inicio()
     const variavel = 'Executando processo';
-    return variavel;
+    console.log(variavel);
+    
+    fim();
 }
 
 function fim() {
@@ -14,9 +21,7 @@ function fim() {
 }
 
 function run() {
-    inicio();
-    console.log(meio())
-    fim();
+    processa(inicio, fim)
 }
 
 run();

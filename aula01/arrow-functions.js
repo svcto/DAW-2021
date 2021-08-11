@@ -3,20 +3,25 @@ function inicio() {
     console.log(variavel);
 }
 
-function meio() {
-    const variavel = 'Executando processo';
-    return variavel;
-}
-
 function fim() {
     const variavel = 'Finalizando execução do processo';
     console.log(variavel);
 }
 
+const init = function() {
+    console.log('inicio alternativo');
+}
+
+const processa = () => {
+    inicio()
+    const variavel = 'Executando processo';
+    console.log(variavel);
+}
+
+
+
 function run() {
-    inicio();
-    console.log(meio())
-    fim();
+    processa();
 }
 
 run();
