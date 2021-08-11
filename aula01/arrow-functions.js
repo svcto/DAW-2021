@@ -18,8 +18,6 @@ const processa = () => {
     console.log(variavel);
 }
 
-
-
 function run() {
     processa();
 }
