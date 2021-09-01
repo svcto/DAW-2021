@@ -1,16 +1,17 @@
 const express = require('express');
-const produtoRouter = require('./routes/produto-router');
+const groupRouter = require('./routes/group-router')
 
 const app = express();
-const PORT = 3000;
+const PORT = 3333;
 
 app.use(express.json());
-app.use(produtoRouter);
 
 app.get('/', (req, res) => {
-    res.send('welcome');
+    res.send('welcome!!!');
 });
 
-app.listen(3000, () => {
+app.listen(PORT, () => {
     console.log('Running on port ' + PORT);
 });
+
+app.use('/groups', groupRouter);
