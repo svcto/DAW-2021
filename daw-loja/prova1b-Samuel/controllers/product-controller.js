@@ -43,7 +43,7 @@ module.exports = {
                 if (ret.length === 0) {
                     return res.status(404).json({message: 'Not found'})
                 }
-                repository.update(req.params).then(ret => {
+                repository.update(product).then(ret => {
                     return res.json(ret)
                 })
                 .catch( error => {
@@ -65,7 +65,7 @@ module.exports = {
                     return res.status(404).json({message: 'Not found'})
                 }
                 repository.delete(req.params).then(ret => {
-                    return res.json(ret)
+                    return res.status(204)
                 })
                 .catch( error => {
                     res.status(500).json({message: error.message})

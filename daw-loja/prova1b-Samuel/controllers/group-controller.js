@@ -43,7 +43,7 @@ module.exports = {
                 if (ret.length === 0) {
                     return res.status(404).json({message: 'Not found'})
                 }
-                repository.update(req.params).then(ret => {
+                repository.update(group).then(ret => {
                     return res.json(ret)
                 })
                 .catch( error => {
