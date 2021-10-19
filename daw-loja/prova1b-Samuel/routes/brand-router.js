@@ -4,7 +4,7 @@ const brandController = require('../controllers/brand-controller');
 const routes = express.Router();
 
 routes.route('/')
-    .get(brandController.index)
+    .get(brandController.index) 
     .post(brandController.create);
     
 routes.route('/:id')
