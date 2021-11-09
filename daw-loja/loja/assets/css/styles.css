@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Roboto';
+}
+
+body {
+    background-color: white;
+    color: #29292e;
+}
+
+header {
+    background-color: white;
+    
+}
+
+header .navbar-brand, header nav li a.active, header nav li a:hover { 
+    color: #a237cc !important;
+}
+
+header nav li {
+    text-transform: uppercase;
+}
+
+.collection {
+    display: flex;
+    flex-direction: row;
+}
+
