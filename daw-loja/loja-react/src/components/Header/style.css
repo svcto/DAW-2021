@@ -1,0 +1,12 @@
+header {
+    background-color: white;
+    
+}
+
+header .navbar-brand, header nav li a.active, header nav li a:hover { 
+    color: #a237cc !important;
+}
+
+header nav li {
+    text-transform: uppercase;
+}
