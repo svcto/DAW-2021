@@ -2,105 +2,47 @@ import { Collection } from './components/Collection';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { Brands } from './components/Brands';
-
-
+import { Products } from './components/Products';
+import { useEffect, useState } from 'react';
+import { Product } from './components/@types';
+import axios from 'axios';
 
 function App() {
+
+  const [products, setProducts] = useState<Product[]>([] as Product[]);
+
+  useEffect(() => {
+    // TODO: Carregue do Server os Dados de produto
+    axios.get('http://localhost:3333/products')
+    .then(prods => {
+      console.log(prods.data)
+      setProducts(prods.data)
+    })
+    .catch(error => {
+      console.log('ERRO', error.data)
+    })
+  }, [])
+
+
   const brands = [
     {alt: 'brand1', source: 'assets/images/brand1.png'},
     {alt: 'brand2', source: 'assets/images/brand2.png'},
     {alt: 'brand3', source: 'assets/images/brand3.png'},
     {alt: 'brand4', source: 'assets/images/brand4.png'},
+  ];
 
-  ]
+  const productsTeste = [
+    {id: 1, name: 'Conjunto de casaco e calça preta', description: '', price: 600, likes: 2, photo: 'produtc1.jpg' },
+    {id: 2, name: 'Conjunto de casaco e calça jean', description: '', price: 600, likes: 2, photo: 'produtc2.jpg' }
+  ];
+
   return ( 
     <div>
       <Header />
       <main>
         <div className="container">
           <Collection />
-          <div className="products">
-            <div className="card">
-              <img src="assets/images/product1.jpg" />
-              <div className="card-body">
-                <h5>Conjunto de casaco e calça preta</h5>
-                <div className="details">
-                  <div className="star-rating">
-                    <i className="bi bi-star-fill"></i>
-                    <i className="bi bi-star-fill"></i>
-                    <i className="bi bi-star-fill"></i>
-                    <i className="bi bi-star"></i>
-                    <i className="bi bi-star"></i>
-
-                  </div>
-                  <div className="price">
-                    <h3>R$ 600,00</h3>
-                    <p>10 x R$ 60,00</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="card">
-              <img src="assets/images/product2.jpg" />
-              <div className="card-body">
-                <h5>Conjunto de casaco e calça preta</h5>
-                <div className="details">
-                  <div className="star-rating">
-                    <i className="bi bi-star-fill"></i>
-                    <i className="bi bi-star-fill"></i>
-                    <i className="bi bi-star-fill"></i>
-                    <i className="bi bi-star"></i>
-                    <i className="bi bi-star"></i>
-
-                  </div>
-                  <div className="price">
-                    <h3>R$ 600,00</h3>
-                    <p>10 x R$ 60,00</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="card">
-              <img src="assets/images/product3.jpg" />
-              <div className="card-body">
-                <h5>Conjunto de casaco e calça preta</h5>
-                <div className="details">
-                  <div className="star-rating">
-                    <i className="bi bi-star-fill"></i>
-                    <i className="bi bi-star-fill"></i>
-                    <i className="bi bi-star-fill"></i>
-                    <i className="bi bi-star"></i>
-                    <i className="bi bi-star"></i>
-
-                  </div>
-                  <div className="price">
-                    <h3>R$ 600,00</h3>
-                    <p>10 x R$ 60,00</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="card">
-              <img src="assets/images/product4.jpg" />
-              <div className="card-body">
-                <h5>Conjunto de casaco e calça preta</h5>
-                <div className="details">
-                  <div className="star-rating">
-                    <i className="bi bi-star-fill"></i>
-                    <i className="bi bi-star-fill"></i>
-                    <i className="bi bi-star-fill"></i>
-                    <i className="bi bi-star"></i>
-                    <i className="bi bi-star"></i>
-
-                  </div>
-                  <div className="price">
-                    <h3>R$ 600,00</h3>
-                    <p>10 x R$ 60,00</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <Products items={products} />
         </div>
         <div className="newsletter">
           <div className="container">
